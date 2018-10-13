@@ -1,0 +1,43 @@
+page-profile {
+  .profielafbeelding {
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    height: 250px;
+    background-color: #EEEEEE;
+  }
+
+  .profielafbeelding button{
+    margin-top: 100px;
+  }
+
+  .container {
+    width: 100%;
+    background: white;
+    position: absolute;
+  }
+
+  .profiel-logout {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .profiel-edit {
+    text-align: center;
+    margin: 30px 0px;
+  }
+
+  .chip-ios > ion-label, .chip-md > ion-label{
+    margin: 0px 0px 0px 10px;
+  }
+
+  ion-chip, .chip-ios, .chip-md {
+    margin: 4px 8px 4px 4px;
+  }
+
+  .profiel-expertises ion-chip{
+    margin-left: -4px;
+  }
+
+}
+

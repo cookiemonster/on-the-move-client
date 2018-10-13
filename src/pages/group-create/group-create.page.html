@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Groep maken</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="save()">
+        OK
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+
+  <form [formGroup]="form">
+
+    <ion-item>
+      <ion-label stacked>Private</ion-label>
+      <ion-toggle type="text" formControlName="private"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Naam</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <component-add-rocketchat-users formControlName="users"></component-add-rocketchat-users>
+
+  </form>
+
+  <ion-fab margin bottom right>
+    <button (click)="save()" ion-fab [disabled]="!form.valid">
+      <svg-icon padding-top src="/assets/svg/save.svg" style="fill:white;width:26px;"></svg-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

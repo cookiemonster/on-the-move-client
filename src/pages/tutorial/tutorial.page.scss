@@ -1,0 +1,52 @@
+page-tutorial {
+
+  ion-slides{
+    background: url('../assets/img/logo-rijksoverheid-jenv-wit.png') top center no-repeat;
+    background-color: #3377AA;
+    color: #eee;
+  }
+
+  .toolbar-background {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  .slide-zoom {
+    height: 100%;
+  }
+
+  .slide-title {
+    margin: 2.8rem 10px 0px 10px;
+  }
+
+  .slide-top-image {
+
+  }
+
+  .slide-image {
+    max-height: 40%;
+    max-width: 60%;
+    margin: 200px 0 0 0;
+    color: #fff;
+  }
+
+  .button{
+      color: #fff;
+  }
+
+  b {
+    font-weight: 500;
+  }
+
+  p {
+    padding: 0 40px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+
+    b {
+      color: #fff;
+    }
+  }
+
+}

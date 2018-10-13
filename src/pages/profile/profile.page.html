@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Profiel</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="editProfile()">
+        Bewerk
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngIf="currentUserService.$userProfile | async; let user; else loading">
+
+    <div class="profielafbeelding" text-center [ngStyle]="{'background-image': 'url(' + profileImgBase + (currentUserService.$rocketchatUserProfile | async)?.username + ')'}"></div>
+
+    <div class="container" padding>
+
+      <component-user-detail [user]="user" [rocketchatUser]="currentUserService.$rocketchatUserProfile | async"></component-user-detail>
+
+      <div class="profiel-expertises">
+        <h6 padding-top>Expertises</h6>
+
+        <ion-chip *ngFor="let expertises of currentUserService.$userExpertises | async">
+          <ion-label>{{expertises.expertise}}</ion-label>
+          <button ion-button clear color="dark"
+            (click)="removeExpertise(expertises)">
+            <ion-icon name="close-circle"></ion-icon>
+          </button>
+        </ion-chip>
+
+        <ion-chip (click)="addExpertise()" color="primary">
+          <ion-label>Voeg toe</ion-label>
+          <button ion-button clear color="light">
+            <ion-icon name="add-circle"></ion-icon>
+          </button>
+        </ion-chip>
+
+      </div>
+
+      <div class="profiel-logout" (click)="logOut()">
+        <button ion-button round>Uitloggen</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <ng-template #loading>Loading User Data...</ng-template>
+
+</ion-content>
+

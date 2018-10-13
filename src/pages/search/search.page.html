@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Zoeken</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar [formControl]="searchFormControl" placeholder="Bv. 'DigiJust' of 'SSC-ICT'">
+  </ion-searchbar>
+  <ion-list>
+
+    <div *ngFor="let user of $users | async">
+      <button ion-item (click)="accordion.toggle()" (press)="openItem(user)">
+        <ion-avatar item-start>
+          <img [src]="profileImgBase + user.rcid" />
+        </ion-avatar>
+        <h2>{{user.voornaam}} {{user.achternaam}}</h2>
+        <p>{{user.organisatieonderdeel}}</p>
+        <div clear item-end margin-right>
+          <ion-icon name="arrow-dropdown"></ion-icon>
+        </div>
+      </button>
+
+
+      <accordion #accordion >
+        <button style="margin-left: 72px; display: block; padding-left: 0" ion-item (click)="openItem(user)">
+          <div  style="display: block; padding-right: 16px; padding-left: 16px; margin-right: 16px">
+            <h6>Function</h6>
+            <p>{{user.functie}} </p>
+
+            <h6 padding-top>About</h6>
+            <p style="width: 95%; white-space: normal">{{user.overmij}}</p>
+
+            <h6 padding-top>Task</h6>
+            <p style="width: 95%; white-space: normal">{{user.taken}}</p>
+          </div>
+
+
+        <!--(click)="openItem(user)"-->
+        <!--<ion-card > <button ion-item> <ion-item style="background: rgba(0,0,0,0);">Content</ion-item>-->
+          <!--<component-user-detail-limited  style="margin-left: 72px; display: block" [user]="user" >-->
+
+          <!--</component-user-detail-limited>-->
+        <!--</button> </ion-card>-->
+        </button>
+      </accordion>
+    </div>
+
+
+  </ion-list>
+</ion-content>

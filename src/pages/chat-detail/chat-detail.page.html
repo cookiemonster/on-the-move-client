@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{chatname}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="loadMessages()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+
+      <button *ngIf="chatType == 1 || chatType == 2" ion-button icon-only (click)="openSettings()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+
+      <button *ngIf="chatType == 1 || chatType == 2" ion-button icon-only (click)="addPerson()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ul *ngIf="currentUserService.$userProfile | async; let user">
+    <div *ngFor="let message of $messages | async">
+      <div *ngIf="message.u._id == user.rcid; else left">
+        <li class="chatitem right"><span class="chatname">{{message.u.name}}</span><br /><span class="chatmsg">{{message.msg}}</span><br /><span class="chattime">{{message.ts | date:'HH:mm dd-MM-yyyy'}}</span></li>
+      </div>
+      <ng-template #left>
+        <li class="chatitem left"><span class="chatname">{{message.u.name}}</span><br /><span class="chatmsg">{{message.msg}}</span><br /><span class="chattime">{{message.ts | date:'HH:mm dd-MM-yyyy'}}</span></li>
+      </ng-template>
+    </div>
+  </ul>
+</ion-content>
+
+<ion-footer>
+  <ion-item end>
+    <textarea type="text" [formControl]="chatbox" placeholder="Bericht..." style="height: 100%"></textarea>
+    <button (click)="send()" [disabled]="!chatbox.valid">
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-item>
+</ion-footer>

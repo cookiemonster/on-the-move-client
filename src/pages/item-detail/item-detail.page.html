@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ user?.naam }}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="openChat()">
+        Open chat
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="profielafbeelding" text-center [ngStyle]="{'background-image': 'url(' + profileImgBase + user?.rcid + ')'}"></div>
+
+  <div class="container" padding>
+
+    <component-user-detail [user]="user" [rocketchatUser]="$rocketchatUser | async"></component-user-detail>
+
+    <div class="profiel-expertises">
+      <h6 padding-top>Expertises</h6>
+
+      <ion-chip *ngFor="let expertise of expertises">
+        <ion-label>{{expertise.expertise}}</ion-label>
+      </ion-chip>
+
+    </div>
+
+  </div>
+
+
+</ion-content>

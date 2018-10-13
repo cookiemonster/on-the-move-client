@@ -1,0 +1,23 @@
+<div>
+  <ion-item>
+    <ion-label stacked>Gebruikers toevoegen</ion-label>
+    <ion-input type="text" [formControl]="searchFormControl" (ionFocus)="optionsVisible = true;"></ion-input>
+  </ion-item>
+  <ion-list [hidden]="!optionsVisible">
+    <ion-item *ngFor="let user of $users | async" (click)="addUser(user)">
+      {{user?.username}}
+    </ion-item>
+  </ion-list>
+
+  <div margin (click)="optionsVisible = false;">
+    <ion-chip *ngFor="let user of $invitedUsers | async">
+      <ion-label>{{user?.username}}</ion-label>
+      <button ion-button clear color="dark"
+              (click)="removeUser(user)">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </ion-chip>
+  </div>
+
+
+</div>

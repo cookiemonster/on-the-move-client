@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Registreren</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="signUpForm" (ngSubmit)="doSignup()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>Voornaam</ion-label>
+        <ion-input type="text" formControlName="voornaam" placeholder="Jan"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label stacked>Achternaam</ion-label>
+          <ion-input type="text" formControlName="achternaam" placeholder="Janssen"></ion-input>
+        </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" formControlName="email" placeholder="jan.janssen@minjenv.nl"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Wachtwoord</ion-label>
+        <ion-input type="password" formControlName="password" placeholder="********"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Wachtwoord bevestigen</ion-label>
+        <ion-input type="password" [formControl]="passwordConfirmControl" placeholder="********"></ion-input>
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block [disabled]="(!signUpForm.valid || !passwordConfirmControl.valid)">Registreren</button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>

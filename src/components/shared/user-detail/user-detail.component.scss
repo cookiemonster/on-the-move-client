@@ -1,0 +1,20 @@
+component-user-detail{
+  dl{
+    width: 100%;
+  }
+
+  dt, dd{
+    float: left;
+    padding: 5px 0px 5px 0px;
+  }
+
+  dt{
+    clear: both;
+    width: 75px;
+  }
+
+  dd {
+    -webkit-margin-start: 20px;
+  }
+
+}

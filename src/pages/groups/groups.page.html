@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Groepen</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <h6>Mijn groepen</h6>
+    <ion-list>
+      <button ion-item (click)="openPrivateGroup(privateGroup)" *ngFor="let privateGroup of $privateGroups | async">
+        <h2>{{privateGroup.name}}</h2>
+        <p>{{privateGroup.topic}}</p>
+        <div clear item-end *ngIf="unreadGroupMessages[privateGroup._id] | async; let n">
+          <ion-badge clear item-end style="margin: 0">{{n}}</ion-badge>
+        </div>
+      </button>
+    </ion-list>
+    <h6>Publieke groepen</h6>
+    <ion-list>
+      <button ion-item (click)="openPublicGroup(publicGroup)" *ngFor="let publicGroup of $publicChannels | async">
+        <h2>{{publicGroup.name}}</h2>
+        <p>{{publicGroup.topic}}</p>
+        <div clear item-end *ngIf="unreadChannelMessages[publicGroup._id] | async; let n">
+          <ion-badge clear item-end style="margin: 0">{{n}}</ion-badge>
+        </div>
+      </button>
+    </ion-list>
+  </ion-list>
+  <ion-fab margin bottom right>
+    <button ion-fab (click)="addGroup()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

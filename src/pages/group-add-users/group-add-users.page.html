@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Gebruikers toevoegen</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="save()">
+        OK
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+
+  <form [hidden]="loadingUsers" [formGroup]="form">
+    <component-add-rocketchat-users [addedUsers]="currentUsers" formControlName="users"></component-add-rocketchat-users>
+  </form>
+
+  <p [hidden]="!loadingUsers">Laden...</p>
+
+  <ion-fab margin bottom right>
+    <button (click)="save()" ion-fab [disabled]="!form.valid">
+      <svg-icon padding-top src="/assets/svg/save.svg" style="fill:white;width:26px;"></svg-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

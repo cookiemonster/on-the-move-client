@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Chat instellinen</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>Naam</ion-label>
+        <ion-input type="text" formControlName="name" placeholder="Naam"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Onderwerp</ion-label>
+        <ion-input type="text" formControlName="topic" placeholder="Onderwerp"></ion-input>
+      </ion-item>
+
+      <div padding>
+        <button type="submit" ion-button color="primary" block [disabled]="!form.dirty || !form.valid" >Opslaan</button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Chatten</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="profiel-chats">
+
+  <ion-list *ngIf="currentUserService.$userProfile | async; let user;">
+    <button ion-item (click)="openChat(chat)" *ngFor="let chat of $chats | async; let i = index">
+      <ion-avatar item-start>
+        <img [src]="profileImgBase + indexedUsers[chat._id]?.username" />
+      </ion-avatar>
+      <h2>{{indexedUsers[chat._id]?.name}}</h2>
+
+      <div clear item-end *ngIf="unreadMessages[chat._id] | async; let member">
+        <ion-badge clear item-end >{{member}}</ion-badge>
+      </div>
+
+
+    </button>
+    <p class="chatmessage">Voeg meer chats toe via "Zoeken"</p>
+  </ion-list>
+
+
+  </div>
+</ion-content>

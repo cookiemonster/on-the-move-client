@@ -1,0 +1,32 @@
+<div>
+  <h2>{{user.voornaam}} {{user.achternaam}}</h2>
+
+  <div class="profiel-informatie">
+
+    <dl>
+      <dt>Afdeling</dt><dd>{{user.organisatieonderdeel}}</dd>
+      <dt>Functie</dt><dd>{{user.functie}}</dd>
+      <div *ngFor="let email of rocketchatUser?.emails">
+        <dt>Email</dt><dd>{{email.address}}</dd>
+      </div>
+      <dt>Telefoon 1</dt><dd><a [href]="'tel:' + user.telefoonnummermobiel" >{{user.telefoonnummermobiel}}</a></dd>
+      <dt>Telefoon 2</dt><dd><a [href]="'tel:' + user.telefoonnummervast" >{{user.telefoonnummervast}}</a></dd>
+      <dt>Achtervang</dt><dd>{{user.achtervang}}</dd>
+      <dt>Werktijden</dt><dd>{{user.werktijden}}</dd>
+      <dt>Kamer</dt><dd>{{user.kamer}}</dd>
+      <dt>Rocketchat</dt><dd>{{rocketchatUser?.username}}</dd>
+      <div class="clear"></div>
+
+    </dl>
+
+
+    <h6 padding-top>Over mij</h6>
+    <p>{{user.overmij}}</p>
+
+    <h6 padding-top>Taken</h6>
+    <p>{{user.taken}}</p>
+
+  </div>
+
+
+</div>

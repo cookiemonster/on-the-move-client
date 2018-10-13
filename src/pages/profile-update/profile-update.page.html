@@ -1,0 +1,90 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Bewerk profiel</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="updateProfile()">
+        OK
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="profiel-detail" padding>
+    <h2>{{user?.voornaam}} {{user?.achternaam}}</h2>
+    <dl>
+      <div *ngFor="let email of (currentUserService.$rocketchatUserProfile | async)?.emails">
+        <dt>Email</dt><dd>{{email.address}}</dd>
+      </div>
+      <dt>Rocketchat</dt>
+      <dd>{{(currentUserService.$rocketchatUserProfile | async)?.username}}</dd>
+    </dl>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="updateProfile()">
+
+    <ion-item>
+      <ion-label stacked>Voornaam</ion-label>
+      <ion-input type="text" formControlName="voornaam"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Achternaam</ion-label>
+      <ion-input type="text" formControlName="achternaam"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Afdeling</ion-label>
+      <ion-input type="text" formControlName="organisatieonderdeel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Functie</ion-label>
+      <ion-input type="text" formControlName="functie"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Telefoon 1</ion-label>
+      <ion-input type="text" formControlName="telefoonnummermobiel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Telefoon 2</ion-label>
+      <ion-input type="text" formControlName="telefoonnummervast"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Achtervang</ion-label>
+      <ion-input type="text" formControlName="achtervang"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Werktijden</ion-label>
+      <ion-input type="text" formControlName="werktijden"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Kamer</ion-label>
+      <ion-input type="text" formControlName="kamer"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Over mij</ion-label>
+      <ion-textarea type="text" formControlName="overmij"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Taken</ion-label>
+      <ion-textarea type="text" formControlName="taken"></ion-textarea>
+    </ion-item>
+
+    <div class="profiel-update">
+      <button ion-button round [disabled]="!form.valid">Update profiel</button>
+    </div>
+
+  </form>
+
+</ion-content>

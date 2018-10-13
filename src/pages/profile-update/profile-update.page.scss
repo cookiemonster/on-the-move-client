@@ -1,0 +1,40 @@
+page-profile-update {
+  .profiel-detail {
+    width: 100%;
+    background: white;
+  }
+
+  .item-inner{
+    margin-right: 8px;
+  }
+
+  dl{
+    float: left;
+    width: 100%;
+  }
+
+  dt, dd{
+    float: left;
+    padding: 5px 0px 5px 0px;
+  }
+
+  dt{
+    clear: both;
+    width: 75px;
+  }
+
+  dd {
+    -webkit-margin-start: 20px;
+  }
+
+  .profiel-update {
+    text-align: center;
+    margin: 30px 0px;
+  }
+
+  textarea {
+    max-width: 100%;
+    width: 100%;
+    height: 16vh;
+  }
+}

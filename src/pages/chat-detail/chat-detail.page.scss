@@ -1,0 +1,77 @@
+page-chat-detail {
+  ion-footer{
+    box-shadow: 0px -4px 10px rgba(50, 50, 50, 0.1);
+  }
+
+  ion-label, .label-ios{
+    margin: 2px;
+    line-height: 2em;
+  }
+
+  textarea, input[type="text"], input[type="button"], input[type="submit"] {
+    -webkit-appearance: none;
+    border-radius: 0;
+    border: 0px;
+  }
+
+  ion-footer textarea{
+    height: 22px;
+    width: 90%;
+    line-height: 2em;
+    font-size: 0.8em;
+  }
+
+  ion-footer button{
+    vertical-align: center;
+    width: 10%;
+    height: 20px;
+    padding: 0px;
+    background: none;
+    line-height: 1.7rem;
+  }
+
+  ion-footer ion-icon{
+    position: absolute;
+    bottom: 8px;
+    right: 14px;
+    font-size: 2.8rem;
+    //vertical-align: center;
+  }
+
+  .right{
+    margin-left: 60px
+  }
+
+  .left{
+    margin-right: 60px;
+  }
+
+  ul{
+    padding: 5px;
+    margin: 0px;
+  }
+
+  ul li{
+    list-style-type: none;
+    background-color: #DDDDDD;
+    margin: 5px;
+    border-radius: 15px;
+    padding: 5px 15px 5px 15px;
+  }
+
+  .chatname{
+    width: 100%;
+    text-align: left;
+    font-weight: 800;
+    font-size: smaller;
+  }
+
+  .chatmsg{
+    line-height: 1.6em;
+  }
+
+  .chattime{
+    font-size: x-small;
+    color: grey
+  }
+}

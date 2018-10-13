@@ -1,0 +1,26 @@
+<ion-menu [content]="mycontent">
+  <ion-header>
+    <ion-toolbar>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="close"></ion-icon>
+      </button>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item menuClose (click)="changePassword()">
+        <h2>Wachtwoord wijzigen</h2>
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+
+<ion-tabs #mycontent selectedIndex="3">
+  <ion-tab [root]="tab1Root" tabTitle="Zoeken" tabIcon="search"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Chatten" tabIcon="text"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Groepen" tabIcon="people"></ion-tab>
+  <ion-tab [root]="tab5Root" tabTitle="Profiel" tabIcon="person"></ion-tab>
+</ion-tabs>

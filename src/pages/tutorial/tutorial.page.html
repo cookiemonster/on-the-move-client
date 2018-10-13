@@ -1,0 +1,24 @@
+<ion-header no-shadow>
+
+</ion-header>
+
+<ion-content no-bounce>
+  <ion-slides pager="true" (ionSlideWillChange)="onSlideChangeStart($event)">
+    <ion-slide *ngFor="let slide_content of slides_content">
+      <img [src]="slide_content.image" class="slide-image" />
+      <h2 class="slide-title" [innerHTML]="slide_content.title"></h2>
+      <p [innerHTML]="slide_content.description"></p>
+      <button ion-button icon-end large clear (click)="nextSlide()">
+        <ion-icon name="arrow-dropright"></ion-icon>
+      </button>
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/img/0005-kind-wit.png" class="slide-image" />
+      <h2 class="slide-title">Maak snelheid met OnTheMove!</h2>
+      <button ion-button icon-end large clear (click)="startApp()">
+        REGISTREER NU
+        <ion-icon name="arrow-dropright"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

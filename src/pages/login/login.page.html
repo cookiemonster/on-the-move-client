@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Inloggen</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" formControlName="email" name="email" placeholder="jan.janssen@minjenv.nl"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Wachtwoord</ion-label>
+        <ion-input type="password" formControlName="password" placeholder="******" name="password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-checkbox formControlName="rememberLogin" color="dark"></ion-checkbox>
+        <ion-label>Onthoud mij</ion-label>
+      </ion-item>
+
+      <div padding>
+        <button type="submit" ion-button  blockcolor="primary" block [disabled]="!loginForm.valid">Inloggen</button>
+        <button type="button" ion-button block (click)="resetPassword()" margin-top>Wachtwoord vergeten</button>
+      </div>
+
+
+    </ion-list>
+  </form>
+
+
+</ion-content>

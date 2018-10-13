@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lid worden</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar [formControl]="searchFormControl" placeholder="Naam of onderwerp">
+  </ion-searchbar>
+  <ion-list>
+    <button ion-item (click)="joinChannel(channel)" *ngFor="let channel of filteredChannels">
+      <h2>{{channel.name}}</h2>
+      <p>{{channel.topic}}</p>
+    </button>
+  </ion-list>
+</ion-content>
