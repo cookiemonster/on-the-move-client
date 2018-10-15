@@ -1,6 +1,9 @@
 # OnTheMove 
 ## Een applicatie in opdracht van het Ministerie van Justitie en Veiligheid
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/cookiemonster/on-the-move-client?branch=master)](https://bettercodehub.com/)
+
+
 ## Table of Contents
 
 1. Installatie
@@ -11,7 +14,7 @@
 ## Installatie
 
 `npm install` in de rootfolder
-Hernoem `/app-config.example.ts` naar `/app-config.ts` en vul de waardes in.
+Hernoem `/app-config.example.ts` naar `/app-config.ts` en pas de variabelen aan.
 
 ### Push notificaties
 #### Android
